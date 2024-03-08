@@ -1,0 +1,13 @@
+<app-header class="sticky top-0 py-4"/>
+
+<app-thewallsays class="py-20 flex flex-col items-center"/>
+
+<div class="py-20 flex flex-col items-center">
+
+    @for(notice of notices(); track $index){
+        <app-notice 
+            [notice]="notice"         
+    />
+    }
+</div>
+<app-footer id="footer" />

@@ -9,7 +9,7 @@ import { Component, HostListener } from '@angular/core';
 })
 export class HeaderComponent {
 
-  isScrolled= false;
+  isScrolled: boolean = false;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {

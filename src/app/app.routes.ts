@@ -7,6 +7,11 @@ import { CarrerascytComponent } from './domains/products/pages/carrerascyt/carre
 import { CarrerasdeeyadComponent } from './domains/products/pages/carrerasdeeyad/carrerasdeeyad.component';
 import { CarrerasdesocComponent } from './domains/products/pages/carrerasdesoc/carrerasdesoc.component';
 import { CarrerasdeeaComponent } from './domains/products/pages/carrerasdeea/carrerasdeea.component';
+import { OfertaacademicaComponent } from './domains/products/pages/ofertaacademica/ofertaacademica.component';
+import { CalendarioacademicoComponent } from './domains/products/pages/calendarioacademico/calendarioacademico.component';
+import { QuienessomosComponent } from './domains/products/pages/quienessomos/quienessomos.component';
+import { ErrorpagesComponent } from './domains/products/pages/errorpages/errorpages.component';
+
 import path from 'path';
 
 export const routes: Routes = [{
@@ -40,5 +45,22 @@ export const routes: Routes = [{
 {
     path:'dea',
     component: CarrerasdeeaComponent
-}        
+},
+{
+    path:'calena',
+    component: CalendarioacademicoComponent
+},
+{
+    path:'ofertaa',
+    component: OfertaacademicaComponent
+},
+{
+    path:'quiness',
+    component: QuienessomosComponent
+},
+{
+    path:'**',
+    component: ErrorpagesComponent
+}
+        
 ];

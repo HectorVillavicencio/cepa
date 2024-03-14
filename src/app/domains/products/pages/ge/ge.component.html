@@ -1,14 +1,15 @@
 <app-header class="sticky top-0 z-50 py-4"/>
 
-<h1 class="text-4xl font-bold text-center">Grupos de estudio</h1>
-<p class="text-center font-bold">Súmate a los grupos de estudio del Introductorio</p>
-
+<div class="mx-2 my-6">
+  <h1 class="text-4xl font-bold text-center">Grupos de estudio</h1>
+  <p class="text-center font-bold">Súmate a los grupos de estudio del Introductorio</p>
+</div>
 
 <!-- Slider -->
 <div data-hs-carousel='{
     "loadingClasses": "opacity-0",
     "isAutoPlay": true
-  }' class="relative">
+  }' class="relative mx-2">
   <div class="hs-carousel relative overflow-hidden w-full min-h-[330px] md:min-h-[600px] bg-white rounded-lg">
     <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
       <div class="hs-carousel-slide">
@@ -48,10 +49,13 @@
 </div>
 <!-- End Slider -->
 
-<h1 class="text-3xl font-bold text-center">Calendario</h1>
+<div class="mx-2 my-6">
+  <h1 class="text-3xl font-bold text-center my-8">Calendario</h1>
 
-<app-calendar/>
+  <app-calendar/>
 
-<p class="text-center mx-6">Si estas necesitando ayuda con las materias o queres participar dando apoyo podes contactarnos a traves de nuestro instagram</p>
+  <p class="text-center mx-6 my-7">Si estas necesitando ayuda con las materias o queres participar dando apoyo podes contactarnos a traves de nuestro instagram</p>
+
+</div>
 
 <app-footer id="footer" />

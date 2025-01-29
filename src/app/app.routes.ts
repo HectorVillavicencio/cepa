@@ -12,7 +12,6 @@ import { CalendarioacademicoComponent } from './domains/products/pages/calendari
 import { QuienessomosComponent } from './domains/products/pages/quienessomos/quienessomos.component';
 import { ErrorpagesComponent } from './domains/products/pages/errorpages/errorpages.component';
 
-import path from 'path';
 
 export const routes: Routes = [{
     path:'',
@@ -62,5 +61,5 @@ export const routes: Routes = [{
     path:'**',
     component: ErrorpagesComponent
 }
-        
+
 ];

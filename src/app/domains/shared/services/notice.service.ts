@@ -9,11 +9,11 @@ import { DataModel } from '../model/data.model';
 export class NoticeService {
   private http = inject(HttpClient)
 
-  token = 'IGQWRNck16QlR6MTFSc2VBTWt6QUdGMk1XUTdybTdXUzhvLWJTZAmVXSDNGSlc4RENEY2JzVXEydEpKS3NDTDlrYnVUYnNWM1lpY3EtZA09lLXBna3pLSXpSZA0dnNFNhTkx3RjBUV25SYm01YjFZAY01xQTlra3JUa28ZD';
+  token = 'EAAQcHHxyzWcBOzxBoUCFjYav8mc3SGPU7BZANkI3JoxqH7OntzBGWUL5iwAiVBVfGJILDWZBh0ZCeOSboFe62ubbZCwcJCVDmRk6GEFdTSXAZCd6YZCPe6MY3RFif5pvn0G4a7J3IbXHDZAMJZBGqSFjqkgvK1ALVGIpGPpZBAfJ6XIJQguA850uY2uKG';
   url ='https://graph.instagram.com/me/media?fields=media_url,permalink,caption&access_token=${token}'
   constructor() { }
 
-  prueba = 'https://graph.instagram.com/me/media?fields=media_url,permalink,caption&access_token=IGQWRQejc2UUpTUTltbDJ3aTdHcDVtY1d6VlpiRXRfeU1vMTdHQTZAScHREV2ZAxd2hGZAWxwbXYybjQ2bUxRRWZARVWdSeGZAjUGJndW5aR19sb0V1QXF6aDF3empJUXVaampTVXd5RG5HSTBmTVJ0a2pXdnA0ZAmdpOFUZD'
+prueba = 'https://graph.instagram.com/me/media?fields=media_url,permalink,caption&access_token=EAAQcHHxyzWcBOyzCaExORSsKjou3SdIZCzhAuWLA7yeWXHyMjWgYgFsjN9xJNimYbAhZAwADEw7bM1d9rk9mrhG2t2iYoZCpxlBKJpgjxZB4iMLPfGZCP0bZBKasPILUwZB4qtA5Lhd7pwdZBcPpZBHx2NgvMRM2OM7qZCDb2suW0ShorgFvcgsgq4jOZCE'
 
   getproduct(){
     return this.http.get<DataModel>(this.prueba);

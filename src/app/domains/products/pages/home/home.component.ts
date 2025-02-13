@@ -5,12 +5,11 @@ import { FooterComponent } from '../../../shared/component/footer/footer.compone
 import { Notice } from '../../../shared/model/notice.model';
 import { NoticeService } from '../../../shared/services/notice.service';
 import { NoticeComponent } from '../../components/notice/notice.component';
-import { ThewallsaysComponent } from '../../components/thewallsays/thewallsays.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, CommonModule,FooterComponent,NoticeComponent,ThewallsaysComponent],
+  imports: [HeaderComponent, CommonModule, FooterComponent, NoticeComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -28,7 +27,7 @@ export class HomeComponent implements OnInit {
       error: () => {
         console.error('Manquiaste rey')
       }
-    })  
+    })
   }
 
 }

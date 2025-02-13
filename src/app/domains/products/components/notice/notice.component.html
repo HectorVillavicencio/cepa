@@ -1,11 +1,64 @@
+<div class="group rounded-lg border sm:max-w-xl max-w-lg">
+  <div class="w-full rounded-t-lg bg-gray-200">
+    <ng-container *ngIf="notice.media_type === 'IMAGE'; else otherMedia">
+      <!-- Imagen única -->
+      <img [src]="notice.media_url" class="h-full w-full object-cover object-center shadow-xl aspect-auto">
+    </ng-container>
 
-<div class="group rounded-lg border  sm:max-w-xl max-w-lg">
-    <div class="w-full rounded-t-lg bg-gray-200">
-        <img [src]="notice.media_url" [alt]="" class="h-full w-full object-cover object-center shadow-xl aspect-auto">
-    </div>
-    <div class="space-y-2 p-6">
-        <p class="whitespace-pre-line" >{{notice.caption}}</p>
+    <ng-template #otherMedia>
+      <ng-container *ngIf="notice.media_type === 'CAROUSEL_ALBUM'; else videoTemplate">
+        <!-- Carrusel de imágenes debajo del header -->
+        <div class="relative mx-2 z-40"> <!-- Añadir z-40 aquí para carrusel -->
+          <div class="overflow-hidden w-full min-h-[600px] bg-white rounded-lg relative"> <!-- Agregar relative aquí para evitar la superposición -->
+            <div class="flex transition-transform duration-700"
+                 [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
+              <ng-container *ngFor="let image of getImages(); let i = index;">
+                <div class="min-w-full flex justify-center bg-gray-100 p-6">
+                  <img class="object-contain w-auto" [src]="image" alt="Imagen {{ i }}">
+                </div>
+              </ng-container>
+            </div>
+          </div>
 
-        <button class="text-black bg-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 w-full" (click)="redireccionar(notice.permalink)" >Noticia Completa</button>
-    </div>
+          <!-- Botón Anterior -->
+          <button type="button"
+                  (click)="prevImage()"
+                  [disabled]="currentIndex === 0"
+                  class="absolute inset-y-0 start-0 w-[46px] h-full text-gray-800 hover:bg-gray-800/[.1] z-10">
+            <span class="text-2xl">
+              <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+              </svg>
+            </span>
+          </button>
+
+          <!-- Botón Siguiente -->
+          <button type="button"
+                  (click)="nextImage()"
+                  [disabled]="currentIndex === getImages().length - 1"
+                  class="absolute inset-y-0 end-0 w-[46px] h-full text-gray-800 hover:bg-gray-800/[.1] z-10">
+            <span class="text-2xl">
+              <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </ng-container>
+    </ng-template>
+
+
+    <ng-template #videoTemplate>
+      <!-- Video -->
+      <video [src]="notice.media_url" controls class="h-full w-full object-cover object-center shadow-xl aspect-auto"></video>
+    </ng-template>
+  </div>
+
+  <div class="space-y-2 p-6">
+    <p class="whitespace-pre-line">{{ notice.caption }}</p>
+    <button class="text-black bg-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 w-full"
+            (click)="redireccionar(notice.permalink)">
+      Noticia Completa
+    </button>
+  </div>
 </div>

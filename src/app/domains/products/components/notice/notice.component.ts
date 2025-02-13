@@ -11,13 +11,26 @@ import { Router } from '@angular/router';
   styleUrl: './notice.component.css'
 })
 export class NoticeComponent {
-  @Input({required: true}) notice!: Notice;
+  @Input() notice!: Notice;
+  currentIndex: number = 0;
 
-  constructor(private router: Router) {}
+  getImages(): string[] {
+    return this.notice.children?.data.map(media => media.media_url) || [];
+  }
 
-  redireccionar(permalink: string): void {
-    window.location.href = permalink
+  nextImage() {
+    if (this.currentIndex < this.getImages().length - 1) {
+      this.currentIndex++;
+    }
+  }
+
+  prevImage() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
+  }
+
+  redireccionar(url: string) {
+    window.open(url, '_blank');
   }
 }
-
-  

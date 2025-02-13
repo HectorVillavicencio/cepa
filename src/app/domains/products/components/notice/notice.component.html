@@ -5,6 +5,7 @@
       <img [src]="notice.media_url" class="h-full w-full object-cover object-center shadow-xl aspect-auto">
     </ng-container>
 
+    <!-- Carrusel -->
     <ng-template #otherMedia>
       <ng-container *ngIf="notice.media_type === 'CAROUSEL_ALBUM'; else videoTemplate">
         <!-- Carrusel de imágenes debajo del header -->
@@ -46,6 +47,7 @@
         </div>
       </ng-container>
     </ng-template>
+
 
 
     <ng-template #videoTemplate>

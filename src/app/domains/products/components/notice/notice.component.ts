@@ -33,4 +33,8 @@ export class NoticeComponent {
   redireccionar(url: string) {
     window.open(url, '_blank');
   }
+
+  goToImage(index: number): void {
+    this.currentIndex = index;
+  }
 }

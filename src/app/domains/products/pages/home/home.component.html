@@ -1,12 +1,12 @@
 <app-header class="sticky top-0 py-4"/>
 
-<app-thewallsays class="py-20 flex flex-col items-center mx-2"/>
+<h1 class="text-center text-6xl font-bold">Bienvenido</h1>
 
 <div class="py-20 flex flex-col items-center mx-2">
 
     @for(notice of notices(); track $index){
-        <app-notice 
-            [notice]="notice"         
+        <app-notice
+            [notice]="notice"
     />
     }
 </div>

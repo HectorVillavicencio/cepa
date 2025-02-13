@@ -1,19 +1,36 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, ElementRef, Renderer2, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
 
   isScrolled: boolean = false;
+  private scrollListener!: () => void;
+  private isTicking: boolean = false;
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.isScrolled = window.scrollY > 0;
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
+
+  ngOnInit() {
+    this.scrollListener = this.renderer.listen('window', 'scroll', () => {
+      if (!this.isTicking) {
+        window.requestAnimationFrame(() => {
+          this.isScrolled = window.scrollY > 50;
+          this.isTicking = false;
+        });
+        this.isTicking = true;
+      }
+    });
   }
 
+  ngOnDestroy() {
+    if (this.scrollListener) {
+      this.scrollListener(); // Elimina el listener cuando el componente se destruye
+    }
+  }
 }

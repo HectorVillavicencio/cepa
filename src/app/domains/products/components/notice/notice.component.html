@@ -5,41 +5,41 @@
       <img [src]="notice.media_url" class="h-full w-full object-cover object-center shadow-xl aspect-auto">
     </ng-container>
 
-    <!-- Carrusel -->
     <ng-template #otherMedia>
       <ng-container *ngIf="notice.media_type === 'CAROUSEL_ALBUM'; else videoTemplate">
         <!-- Carrusel de imágenes debajo del header -->
-        <div class="relative mx-2 z-40"> <!-- Añadir z-40 aquí para carrusel -->
-          <div class="overflow-hidden w-full min-h-[600px] bg-white rounded-lg relative"> <!-- Agregar relative aquí para evitar la superposición -->
+        <div class="relative mx-2 z-40">
+          <div class="overflow-hidden w-full min-h-[330px] sm:min-h-[440px] md:min-h-[550px] lg:min-h-[660px] bg-white rounded-lg relative">
             <div class="flex transition-transform duration-700"
                  [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
               <ng-container *ngFor="let image of getImages(); let i = index;">
-                <div class="min-w-full flex justify-center bg-gray-100 p-6">
-                  <img class="object-contain w-auto" [src]="image" alt="Imagen {{ i }}">
+                <div class="min-w-full flex justify-center bg-gray-100 p-2 sm:p-4">
+                  <img class="object-contain w-auto" 
+                       [src]="image" alt="Imagen {{ i }}">
                 </div>
               </ng-container>
             </div>
           </div>
-
+    
           <!-- Botón Anterior -->
           <button type="button"
                   (click)="prevImage()"
                   [disabled]="currentIndex === 0"
-                  class="absolute inset-y-0 start-0 w-[46px] h-full text-gray-800 hover:bg-gray-800/[.1] z-10">
-            <span class="text-2xl">
-              <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  class="absolute inset-y-0 start-0 w-10 h-full sm:w-12 md:w-14 lg:w-16 text-gray-800 hover:bg-gray-800/20 z-10 transition-all duration-200">
+            <span class="flex justify-center items-center h-full">
+              <svg class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
               </svg>
             </span>
           </button>
-
+    
           <!-- Botón Siguiente -->
           <button type="button"
                   (click)="nextImage()"
                   [disabled]="currentIndex === getImages().length - 1"
-                  class="absolute inset-y-0 end-0 w-[46px] h-full text-gray-800 hover:bg-gray-800/[.1] z-10">
-            <span class="text-2xl">
-              <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  class="absolute inset-y-0 end-0 w-10 h-full sm:w-12 md:w-14 lg:w-16 text-gray-800 hover:bg-gray-800/20 z-10 transition-all duration-200">
+            <span class="flex justify-center items-center h-full">
+              <svg class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
               </svg>
             </span>
@@ -47,6 +47,8 @@
         </div>
       </ng-container>
     </ng-template>
+
+    
 
 
 

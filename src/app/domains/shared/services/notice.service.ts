@@ -15,10 +15,11 @@ export class NoticeService {
 
 prueba = 'https://graph.instagram.com/v21.0/me/media?fields=media_type,media_url,permalink,caption,children{media_url}&access_token=IGAAcazgHdJUpBZAE8zdW5aY2dPRFRnX0hlRGdnTEctWHRhWGtQYVpIbjd3aTJHYl9Cai16SU1mZA1U2c25yMlRudVFfZADBUTlh6elVuTlk5aU5CRU0wM1dXNWh3QWtFZAFdxVFd6TFY3THhQbEkwXzhZAUTFpeWYwQjdJVGM4ekl0TQZDZD'
 
-  getproduct(){
-    return this.http.get<DataModel>(this.prueba);
-  };
 
+test = 'http://localhost:8080/cepaback/cepa/all'
+  getproduct(){
+    return this.http.get<DataModel>(this.test);
+  };
 
 }
 

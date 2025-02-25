@@ -18,7 +18,7 @@ prueba = 'https://graph.instagram.com/v21.0/me/media?fields=media_type,media_url
 
 test = 'http://localhost:8080/cepaback/cepa/all'
   getproduct(){
-    return this.http.get<DataModel>(this.test);
+    return this.http.get<DataModel>(this.prueba);
   };
 
 }

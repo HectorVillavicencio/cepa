@@ -30,19 +30,19 @@ export const routes: Routes = [{
     component: MapComponent
 },
 {
-    path:'dcyt',
+    path:'inag',
     component: CarrerascytComponent
 },
 {
-    path:'deya',
+    path:'cisa',
     component: CarrerasdeeyadComponent
 },
 {
-    path:'dsoc',
+    path:'soad',
     component: CarrerasdesocComponent
 },
 {
-    path:'dea',
+    path:'esin',
     component: CarrerasdeeaComponent
 },
 {
